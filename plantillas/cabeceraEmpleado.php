@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(empty($_SESSION)){
+    header("location:../login.php");
+}else{
+    $admin = $_SESSION["empleado"];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
