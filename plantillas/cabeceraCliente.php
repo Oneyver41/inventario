@@ -3,7 +3,7 @@ session_start();
 if(empty($_SESSION)){
     header("location:../login.php");
 }else{
-    $admin = $_SESSION["usuario"];
+    $_SESSION["usuario"];
 }
 ?>
 <!DOCTYPE html>

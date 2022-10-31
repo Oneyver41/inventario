@@ -25,6 +25,7 @@ if(isset($_POST["userRegis"])){
 }
 //=========VALIDAR LOGIN============
 if(isset($_POST["userLogin"])){
+    session_start();
     if(empty($_POST["userLogin"]) && empty($_POST["claveLogin"])){
         echo "<script>validarCampos()</script>";
     }else{
@@ -65,9 +66,8 @@ if(isset($_POST["userLogin"])){
         //login de usuario
         if($fila > 0){
             $fila = mysqli_fetch_array($ejecutar);
-            session_start();
             if($fila["rango"] == 4){
-                $_SESSION["admin"] = $usuario;
+                $_SESSION["usuario"] = $usuario;
                 header("Refresh: 2;modulos/usuario.php");
                  echo  "<script>exito()</script>";
             }
